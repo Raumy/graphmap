@@ -1,0 +1,17 @@
+{
+"vertices" :
+	[
+{ "name":"A" },
+{ "name":"B" },
+{ "name":"C" },
+{ "name":"D" },
+{ "name":"E" }
+	],	
+"edges" : [
+{ "src":"A","dst":"B" },
+{ "src":"A","dst":"C" },
+{ "src":"C","dst":"E" },
+{ "src":"A","dst":"D" },
+{ "src":"B","dst":"E" }
+]
+}

@@ -26,7 +26,7 @@ using Json;
 using Gtk;
 using Cairo;
 
-string UP;
+string DEF_NAME;
 int selected_map = 0;
 
 public class cSignalsHandler {
@@ -70,7 +70,7 @@ public class cSignalsHandler {
 
         Gdk.Pixbuf result= Gdk.pixbuf_get_from_surface(surface, 0, 0, width, height);
 
-        result.save("carte_%s_%s.png".printf (UP, drawing_area.get_graphmap().map_name),  "png");
+        result.save("carte_%s_%s.png".printf (DEF_NAME, drawing_area.get_graphmap().map_name),  "png");
 
         return false;
 
@@ -157,7 +157,7 @@ void load_liste_cartes() {
     liste_cartes = new GLib.Array<string>();
 
     var parser = new Json.Parser ();
-    parser.load_from_file("graph_%s.json".printf(UP));
+    parser.load_from_file("graph_%s.json".printf(DEF_NAME));
 
     var root_object = parser.get_root ().get_object ();
     var tmp  = root_object.get_members ();
@@ -189,19 +189,18 @@ int main(string[] args) {
     bool convert_to_csv = false;
 
 
-        UP = args[1];
+        DEF_NAME = args[1];
 
 
-   // g = load_definition_file(UP);
 stdout.printf ("loading definition file\n");
 
-     referentiel_graph = load_definition_file(UP);
+     referentiel_graph = load_definition_file(DEF_NAME);
 
 stdout.printf ("loading maps list\n");
     load_liste_cartes();
 
     var gm = new GraphMap(liste_cartes.index(selected_map));
-    gm.load("graph_%s.json".printf (UP), referentiel_graph, liste_cartes.index(selected_map));
+    gm.load("graph_%s.json".printf (DEF_NAME), referentiel_graph, liste_cartes.index(selected_map));
 
 stdout.printf ("Initializing GTK\n");
 

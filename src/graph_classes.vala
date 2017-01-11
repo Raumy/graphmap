@@ -343,11 +343,11 @@ public class GraphMap {
 
 
 
-Graph load_definition_file(string UP) {
+Graph load_definition_file(string name) {
     var g = new Graph();
 
     var parser = new Json.Parser ();
-    parser.load_from_file("definitions_%s.json".printf(UP));
+    parser.load_from_file("definitions_%s.json".printf(name));
 
     var root_object = parser.get_root ().get_object ();
     var results = root_object.get_array_member ("vertices");

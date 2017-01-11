@@ -162,6 +162,7 @@ public class cArea : DrawingArea {
                     vertices_to_draw.append(mu_to);
 
                 if ((mu_from != null) && (mu_to != null)) {
+                    context.save();
                     context.set_source_rgb (0, 0, 1);
                     context.move_to(mu_from.x + rel_y, mu_from.y + rel_y);
                     context.line_to(mu_to.x + rel_y, mu_to.y + rel_y);

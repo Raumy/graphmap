@@ -53,13 +53,13 @@ public class cArea : DrawingArea {
     }
 
     public void save_graphmap() {
-        gm.save("graph_%s.json".printf(UP));        
+        gm.save("graph_%s.json".printf(DEF_NAME));        
     }
 
     public void set_map(int index) {
         selected_map = index;
         gm = new GraphMap(liste_cartes.index(selected_map));
-        gm.load("graph_%s.json".printf (UP), referentiel_graph, liste_cartes.index(selected_map));        
+        gm.load("graph_%s.json".printf (DEF_NAME), referentiel_graph, liste_cartes.index(selected_map));        
         redraw();
     }
 

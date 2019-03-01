@@ -20,7 +20,7 @@
  *
  */
 
- // valac --pkg gtk+-3.0 --pkg json-glib-1.0 graph_up.vala graph_classes.vala graph_dpih.vala
+ // valac --pkg gtk+-3.0 --pkg json-glib-1.0 graphmap.vala graph_classes.vala graph_drawingarea.vala
 
 using Json;
 using Gtk;
@@ -240,3 +240,5 @@ stdout.printf ("Initializing GTK\n");
 
     return 0;
 }
+
+
